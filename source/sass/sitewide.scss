@@ -14,36 +14,40 @@ body {
 }
 
 main {
-	height: 100vh;
 	margin: 0 auto;
+	padding: 10% 0;
+	text-align: center;
 	width: 80%;
 
 	@include mobile {
 		width: 100%;
 	}
+
+	h1 {
+		color: white;
+		text-transform: uppercase;
+	}
 }
 
 section {
-	margin: 20%;
+	display: inline;
+	margin: 10% 0;
+	line-height: 200px;
 	text-align: center;
-
-	@include mobile {
-		margin: 20% 0;
-	}
+	width: 50%;
 
 	&.student {
-
 	}
 
 	&.professor {
-
 	}
 
 	a {
-		font-size: 4em;
 		border: 2px solid white;
 		border-radius: 5px;
 		color: white;
+		font-size: 3em;
+		width: 400px;
 
 		&:hover {
 
