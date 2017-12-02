@@ -1,0 +1,31 @@
+@import "_variables.scss"; // Include all variables for the site like fonts
+@import "_mixins.scss"; // Include the CSS mixins
+@import "_reset.scss"; // Include the general HTML reset
+@import "_keyframes.scss"; // keyframe animations, only include if you'll be using keyframe animations
+
+/* Put all your main styles below here */
+/* When making styles, make sure to keep in mind a mobile-first mentality. All your main code here should work 100% on mobile. Your media queries should be for upscaling from a mobile size.*/
+
+/* Use the media queries mixins as inline media queries instead of giant media query chunks, like this:
+
+p {
+	font-size: 16px;
+	
+	@include desktop {
+		font-size: 20px;
+	}
+
+	@include tablet {
+		font-size: 18px;
+	}
+
+	@include mobile {
+		font-size: 12px;
+	}
+}
+*/
+
+
+/*
+Include any other files split out by section here
+*/
