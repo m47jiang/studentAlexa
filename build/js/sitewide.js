@@ -18,22 +18,19 @@ var SITE = {
 
 /* Methods
 =============================================*/	
-	init: function(){
-		
-	},
-	
-	functions: {
-		track_links: function(category, action, label) { //generic google analytics function for event tracking
-			ga('send', 'event', category, action, label);
-		},
-		
-		scroll_to: function(scroll_place) { //scrolls to an ID, scroll_place should be passed as the name of the ID you want to scroll to
-			var target = $('#' + scroll_place);
-			$('html, body').animate({
-				scrollTop: target.offset().top - 150
-			}, 1000);
-		},
-		
+init: function(){
+	$("#IdStudent").click(function() {
+		$(".join").addClass("show");
+		console.log("student");
+	});
+	$("#IdProfessor").click(function() {
+		$(".create").addClass("show");
+		console.log("professor");
+	});
+},
+
+functions: {
+
 		get_params: function(param) { // generic function for reading URL parameters
 			var query = window.location.search.substring(1);
 			var vars = query.split('&');

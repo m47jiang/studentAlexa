@@ -6,25 +6,58 @@
 /* Put all your main styles below here */
 /* When making styles, make sure to keep in mind a mobile-first mentality. All your main code here should work 100% on mobile. Your media queries should be for upscaling from a mobile size.*/
 
-/* Use the media queries mixins as inline media queries instead of giant media query chunks, like this:
+body {
+	background: linear-gradient(145deg, #DAD299, #b0dab9);
+	background-size: 200% 200%;
+	height: 100vh;
+	@include animation(gradient 10s ease infinite);
+}
 
-p {
-	font-size: 16px;
-	
-	@include desktop {
-		font-size: 20px;
-	}
-
-	@include tablet {
-		font-size: 18px;
-	}
+main {
+	height: 100vh;
+	margin: 0 auto;
+	width: 80%;
 
 	@include mobile {
-		font-size: 12px;
+		width: 100%;
 	}
 }
-*/
 
+section {
+	margin: 20%;
+	text-align: center;
+
+	@include mobile {
+		margin: 20% 0;
+	}
+
+	&.student {
+
+	}
+
+	&.professor {
+
+	}
+
+	a {
+		font-size: 4em;
+		border: 2px solid white;
+		border-radius: 5px;
+		color: white;
+
+		&:hover {
+
+		}
+	}
+
+	.entry-point {
+		display: none;
+	}
+
+	.show {
+		display: block;
+	}
+}
 
 /*
 Include any other files split out by section here
