@@ -29,23 +29,19 @@ init: function(){
 		var newClass = $("#inputName").val();
 		console.log(newClass);
 		SITE.functions.create_instance(newClass);
-		$(location).attr("href","professor.html");
+		// $(location).attr("href","professor.html");
 	});
 },
 
 functions: {
 
 	create_instance: function(className) {
-		var db = firebase.database();
-		var classesref = db.ref().child('className');
 		var key = (new Date().getTime()+'').substr(6,7);
-		console.log(key);
-		var postData = {
+		var classPath = "classes/"+className;
+		var newPostKey = firebase.database().ref().child(classPath).update({
 			"id": key,
 			"className": className
-		}
-		console.log(postData)
-		var newPostKey = classesref.update(postData);
+		});
 		return
 	}
 }
