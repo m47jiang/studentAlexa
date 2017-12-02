@@ -19,7 +19,7 @@ var js_list = [
 		include_file: {
 			default_options: {
 				cwd: 'source/',
-				src: ['index.html'], //put all main html files here to be watched, should update to wildcard
+				src: ['index.html', 'student.html', 'professor.html'], //put all main html files here to be watched, should update to wildcard
 				dest: 'build/'
 			}
 		},

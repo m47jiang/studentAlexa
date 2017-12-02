@@ -1,7 +1,7 @@
 {
   "name": "yalehack",
   "version": "0.0.1",
-  "description": "Upstream - Be Your Own Baby",
+  "description": "Hackathon project for Yale.",
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "load-grunt-tasks": "^3.5.2",
     "node-sass": "4.5.2"
   },
-  "author": "MullenLowe",
+  "author": "Crystal Rhee",
   "license": "ISC",
   "dependencies": {
     "grunt-sync": "^0.3.0"

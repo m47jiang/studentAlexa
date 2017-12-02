@@ -10,62 +10,45 @@
 //	later into new functions.
 
 var SITE = {
-	
-/* Globals Variables
-=============================================*/	
-	//cat: 'cat',
 
 /* Methods
 =============================================*/	
 init: function(){
+
 	$("#IdStudent").click(function() {
+		$(".create").removeClass("show");
 		$(".join").addClass("show");
-		console.log("student");
 	});
 	$("#IdProfessor").click(function() {
+		$(".join").removeClass("show");
 		$(".create").addClass("show");
-		console.log("professor");
 	});
-	$("#IdStudent").click(function() {
-		SITE.functions.writeNewPost("hello", "world");
-		console.log("hellohello");
-	})
+
+	$(".btn-create").click(function(event) {
+		var $form = $(this);
+		var newClass = $("#inputName").val();
+		console.log(newClass);
+		SITE.functions.create_instance(newClass);
+		$(location).attr("href","professor.html");
+	});
 },
 
 functions: {
-	get_params: function(param) {
-		var query = window.location.search.substring(1);
-		var vars = query.split('&');
-		for (var i = 0; i < vars.length; i++) {
-			var pair = vars[i].split('=');
-			if (decodeURIComponent(pair[0]) == param) {
-				return decodeURIComponent(pair[1]);
-			}
-		}
-	},
 
-	write_data: function(param) {
-		var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
-		starCountRef.on('value', function(snapshot) {
-			updateStarCount(postElement, snapshot.val());
-		});
-	},
-
-	writeNewPost: function(first, second) {
+	create_instance: function(className) {
+		var db = firebase.database();
+		var classesref = db.ref().child('className');
+		var key = (new Date().getTime()+'').substr(6,7);
+		console.log(key);
 		var postData = {
-			first: second
-		};
-
-			// Get a key for a new Post.
-			var tmp = firebase.database()
-			var newPostKey = firebase.database().ref().child('posts').update({
-				"alanisawesome/nickname": "Alan The Machine",
-				"gracehop/nickname": "Amazing Grace"
-			});
-
-			return
+			"id": key,
+			"className": className
 		}
+		console.log(postData)
+		var newPostKey = classesref.update(postData);
+		return
 	}
+}
 };
 
 

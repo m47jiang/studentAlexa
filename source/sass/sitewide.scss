@@ -5,49 +5,40 @@
 
 /* Put all your main styles below here */
 /* When making styles, make sure to keep in mind a mobile-first mentality. All your main code here should work 100% on mobile. Your media queries should be for upscaling from a mobile size.*/
-
-body {
-	background: linear-gradient(145deg, #DAD299, #b0dab9);
-	background-size: 200% 200%;
-	height: 100vh;
-	@include animation(gradient 10s ease infinite);
-}
-
 main {
-	margin: 0 auto;
-	padding: 10% 0;
 	text-align: center;
-	width: 80%;
-
-	@include mobile {
-		width: 100%;
-	}
+	position: relative;
+	display: flex;
 
 	h1 {
 		color: white;
+		left: 50%;
+		position: absolute;
 		text-transform: uppercase;
+		top: 50%;
+		@include transform(translate(-50%, -50%));
 	}
 }
 
 section {
-	display: inline;
-	margin: 10% 0;
-	line-height: 200px;
+	height: 100vh;
 	text-align: center;
 	width: 50%;
 
 	&.student {
+		background-color: #404C56;
 	}
 
 	&.professor {
+		background-color: #A795A5;
 	}
 
 	a {
 		border: 2px solid white;
-		border-radius: 5px;
 		color: white;
-		font-size: 3em;
-		width: 400px;
+		font-size: 3vw;
+		line-height: 500px;
+		padding: 10px 20px;
 
 		&:hover {
 
@@ -56,6 +47,22 @@ section {
 
 	.entry-point {
 		display: none;
+		form {
+			.txt {
+				background: transparent;
+				border: none;
+				color: white;
+				border-bottom: 1px solid white;
+				outline: none;
+			}
+			.btn {
+				background:transparent;
+				border: 1px solid white;
+				border-radius: 0;
+				color: white;
+				padding: 5px 10px;
+			}
+		}
 	}
 
 	.show {
@@ -63,6 +70,14 @@ section {
 	}
 }
 
-/*
-Include any other files split out by section here
-*/
+#professorBody {
+	section {
+		width: 100%;
+	}
+}
+
+#studentBody {
+	section {
+		width: 100%;
+	}
+}
