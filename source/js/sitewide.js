@@ -27,6 +27,9 @@ init: function(){
 		$(".create").addClass("show");
 		console.log("professor");
 	});
+	$("IdStudent").click(function() {
+		write_data("hello", "world");
+	})
 },
 
 functions: {
@@ -40,13 +43,47 @@ functions: {
 					return decodeURIComponent(pair[1]);
 				}
 			}
-		}
+		},
+
+		write_data: function(param) {
+
+			var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
+			starCountRef.on('value', function(snapshot) {
+			  updateStarCount(postElement, snapshot.val());
+			});
+		},
+
+		writeNewPost: function (first, second) {
+			// A post entry.
+			var postData = {
+			  first: second
+			};
+		  
+			// Get a key for a new Post.
+			var newPostKey = firebase.database().ref().child('posts').push().key;
+		  
+			// Write the new post's data simultaneously in the posts list and the user's post list.
+			var updates = {};
+			updates['/posts/' + newPostKey] = postData;
+			updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+		  
+			return firebase.database().ref().update(updates);
+		  }
 	}
-	
 };
 
 
 //Document.ready function below, when ready call the init() function
 $(window).on('load', function() { //on load waits for all images to load, you can switch to .ready instead if you want
 	SITE.init();
+	  // Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyCERQ4Q8jFaBJ_NY4QUmOcMdTyPU5uMvck",
+		authDomain: "student-alexa.firebaseapp.com",
+		databaseURL: "https://student-alexa.firebaseio.com",
+		projectId: "student-alexa",
+		storageBucket: "",
+		messagingSenderId: "395199799046"
+	};
+	firebase.initializeApp(config);
 });
