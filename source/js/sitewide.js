@@ -60,14 +60,21 @@ functions: {
 			};
 		  
 			// Get a key for a new Post.
-			var newPostKey = firebase.database().ref().child('posts').push().key;
-		  
+			var tmp = firebase.database()
+			var newPostKey = firebase.database().ref().child('posts').update({
+				"alanisawesome/nickname": "Alan The Machine",
+				"gracehop/nickname": "Amazing Grace"
+			  });;
+
+			return 
+		  /*
 			// Write the new post's data simultaneously in the posts list and the user's post list.
 			var updates = {};
 			updates['/posts/' + newPostKey] = postData;
 			updates['/user-posts/' + uid + '/' + newPostKey] = postData;
 		  
 			return firebase.database().ref().update(updates);
+			*/
 		  }
 	}
 };
