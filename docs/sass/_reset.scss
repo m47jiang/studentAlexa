@@ -1,0 +1,267 @@
+// Put any font declarations here first
+@font-face {
+    font-family: 'Type Style';
+    src: url('../fonts/typo_style_bold_demo-webfont.woff2') format('woff2'),
+         url('../fonts/typo_style_bold_demo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* Reset & Normalization
+=============================================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a,
+abbr, acronym, address, big, cite, code, del,
+dfn, em, img, ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, b, u, i, center, dl, dt,
+dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article,
+aside, canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby, section,
+summary, time, mark, audio, video{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, dialog{
+	display: block;
+}
+audio, canvas, video{
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+audio:not([controls]){
+	display: none;
+}
+[hidden]{
+	display: none;
+	visibility: hidden;
+}
+
+/* Headings
+=============================================*/
+h1, h2, h3, h4, h5, h6 {
+	font-size: 1em;
+	font-weight: normal;
+}
+h1 {
+	font-size: 4.25em; /* 68px */
+	line-height: 1.1471em;
+}
+h2 {
+	font-size: 2.625em; /* 42px */
+	line-height: 1.2381em;
+}
+h3 {
+	font-size: 1.625em; /* 26px */
+	line-height: 1em;
+}
+small {
+	font-size: 0.625em; /* 10px */
+}
+/* Preformatted
+=============================================*/
+pre {
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+pre, code, kbd, samp {
+	font: 1em/1.625em;
+}
+/* Tables
+=============================================*/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+th {
+	text-align: left;
+}
+/* Forms
+=============================================*/
+fieldset {
+	border: 0;
+}
+textarea {
+	overflow: auto;
+	vertical-align: top;
+}
+legend {
+	border: 0;
+	*margin-left: -7px;
+}
+button, input, select, textarea {
+	font: 1em/1.625;
+	vertical-align: baseline;
+	*vertical-align: middle;
+}
+button, input {
+	line-height: normal;
+	*overflow: visible;
+}
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+	cursor: pointer;
+	-webkit-appearance: button;
+}
+input[type="checkbox"], input[type="radio"] {
+	box-sizing: border-box;
+}
+input[type="search"] {
+	-webkit-appearance: textfield;
+	@include box-sizing(content-box);
+}
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+table button, table input {
+	*overflow: auto;
+}
+/* Quotes
+=============================================*/
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+blockquote, q, cite {
+	font-style: italic;
+}
+blockquote > p {
+	padding: 0;
+}
+/* Lists
+=============================================*/
+ul, ol, li {
+	list-style-position: inside;
+	list-style-type: none;
+	list-style-image: none;
+}
+/* Links
+=============================================*/
+a, a:visited, a:hover, a:active {
+	//color: #0067a2;
+	outline: none;
+	text-decoration: none;
+}
+/* Embedded content
+=============================================*/
+object, video {
+	max-width: 100%;
+}
+img {
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+svg:not(:root) {
+	overflow: hidden;
+}
+/* Helpers
+=============================================*/
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-bottom: 1px solid #ddd;
+}
+strong, b, dt, .bold {
+	font-weight: bold;
+}
+dfn, .italic {
+	font-style: italic;
+}
+var, address {
+	font-style: normal;
+}
+sub, sup {
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+/* Main
+=============================================*/
+html {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	overflow: auto !important;
+}
+body {
+	background: #fff;
+	font: $bodyFontFull;
+	overflow: auto !important;
+}
+
+h1 {
+	font-size: 30px;
+	
+	@include desktop {
+		font-size: 50px;
+	}
+	@include tablet {
+		font-size: 50px;
+	}
+}
+h2 {
+	font-size: 26px;
+	
+	@include desktop {
+		font-size: 45px;
+	}
+	@include tablet {
+		font-size: 45px;
+	}
+}
+h3 {
+	font-size: 18px;
+	
+	@include desktop {
+		font-size: 30px;
+	}
+	@include tablet {
+		font-size: 30px;
+	}
+}
+
+p {
+	font: normal 18px/27px $bodyFont;
+	padding: 10px 0;
+	
+	@include mobile {
+		font-size: 15px;
+		line-height: 25px;
+	}
+}
+* {
+	-webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+	backface-visibility: hidden;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+*.unselectable {
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;
+}
