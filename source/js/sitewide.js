@@ -46,6 +46,14 @@ functions: {
 		});
 	},
 
+	publish_question: function(question, className) {
+		var questionPath = "questions/" + className;
+		var newPostKey = firebase.database().ref().child(classPath).update({
+			"id": key,
+			"className": className
+		});
+	}
+
 	check_code: function(className, idName) {
 		var classPath = "classes/"+className;
 		console.log(className);
@@ -53,9 +61,11 @@ functions: {
 		.then(function(dataSnapshot){
 			console.log(dataSnapshot.val().classes[className]);
 			console.log(dataSnapshot.val().classes[className]["id"]);
-			if(dataSnapshot.val().classes[className]["id"]) {
+			console.log(idName);
+			if(dataSnapshot.val().classes[className]["id"] == idName) {
 				$(location).attr("href","student.html");
 			} else {
+
 				console.log("NO");
 			}
 		});
