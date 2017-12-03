@@ -72,10 +72,19 @@ functions: {
 	},
 
 	publish_question: function(question, ClassId) {
-		var questionObject = {}
-		questionObject[question] = question;
-		var newPostKey = firebase.database().ref().child("questions/"+ClassId).update(questionObject);
-		//3720807
+		var classPath = "classes/"+ClassId;
+		var key = 0;
+		firebase.database().ref().once("value")
+		.then(function(dataSnapshot){
+			var currentQuestions = dataSnapshot.val().questions;
+			if (currentQuestions[ClassId]) {
+				key += Object.keys(currentQuestions[ClassId]).length + 1;
+			}
+			var questionObject = {};
+			questionObject[key+''] = question;
+			var newPostKey = firebase.database().ref().child("questions/"+ClassId).update(questionObject);
+		});
+
 		$("#confirmSubmission").addClass("show");
 		setTimeout(function() {
 			$("#confirmSubmission").removeClass("show");
@@ -101,6 +110,7 @@ functions: {
 }
 };
 
+//3720807
 
 //Document.ready function below, when ready call the init() function
 $(window).on('load', function() { //on load waits for all images to load, you can switch to .ready instead if you want
