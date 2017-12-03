@@ -1,0 +1,125 @@
+@import "_variables.scss"; // Include all variables for the site like fonts
+@import "_mixins.scss"; // Include the CSS mixins
+@import "_reset.scss"; // Include the general HTML reset
+@import "_keyframes.scss"; // keyframe animations, only include if you'll be using keyframe animations
+
+/* Put all your main styles below here */
+/* When making styles, make sure to keep in mind a mobile-first mentality. All your main code here should work 100% on mobile. Your media queries should be for upscaling from a mobile size.*/
+main {
+	text-align: center;
+	position: relative;
+	display: flex;
+}
+
+h1, h2, h3 {
+	color: white;
+}
+
+h1 {
+	left: 50%;
+	position: absolute;
+	text-transform: uppercase;
+	top: 70%;
+	@include transform(translate(-50%, -50%));
+}
+
+h2 {
+	margin: 10%;
+}
+
+.show {
+	display: block !important;
+	opacity: 1 !important;
+}
+
+section {
+	height: 100vh;
+	text-align: center;
+	width: 50%;
+
+	&.student {
+		background-color: #404C56;
+
+		p {
+			opacity: 0;
+			color: #CD5555;
+		}
+	}
+
+	&.professor {
+		background-color: #A795A5;
+	}
+
+	a {
+		border: 2px solid white;
+		color: white;
+		font-size: 3vw;
+		line-height: 300px;
+		padding: 10px 20px;
+
+		&:hover {
+		}
+	}
+
+	.entry-point {
+		display: none;
+	}
+
+
+	input {
+		@include mobile {
+			display: block;
+			margin: 20px auto;
+		}
+	}
+
+	.txt {
+		background: transparent;
+		border: none;
+		color: white;
+		border-bottom: 1px solid white;
+		outline: none;
+	}
+	.btn {
+		background:transparent;
+		border: 1px solid white;
+		border-radius: 0;
+		color: white;
+		padding: 5px 10px;
+	}
+}
+
+.professor-share, .student-question {
+	display: none;
+	width: 100%;
+
+	&.show {
+		left: 0;
+		position: absolute;
+		top: 0;
+		z-index: 1;
+
+		textarea, input {
+			display: block;
+			margin: 0 auto;
+		}
+
+		.btn {
+			margin: 20px auto;
+		}
+	}
+}
+
+.professor-share {
+	background-color: #A795A5;
+}
+
+.student-question {
+	background-color: #404C56;
+
+	p {
+		opacity: 0;
+		color: #90EE90;
+	}
+}
+
