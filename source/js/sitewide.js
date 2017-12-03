@@ -25,16 +25,18 @@ init: function(){
 	});
 
 	$(".btn-create").click(function(event) {
-		var $form = $(this);
 		var newClass = $("#inputName").val();
-		console.log(newClass);
 		SITE.functions.create_instance(newClass);
-		// $(location).attr("href","professor.html");
+		$(location).attr("href","professor.html");
+	});
+	$(".btn-join").click(function(event) {
+		var classCode = $("#inputCode").val();
+		SITE.functions.check_code(classCode);
+		// $(location).attr("href","student.html");
 	});
 },
 
 functions: {
-
 	create_instance: function(className) {
 		var key = (new Date().getTime()+'').substr(6,7);
 		var classPath = "classes/"+className;
@@ -42,6 +44,17 @@ functions: {
 			"id": key,
 			"className": className
 		});
+		return
+	},
+
+	check_code: function(className) {
+		var classPath = "classes/"+className;
+		firebase.database().ref().once("value")
+		.then(function(dataSnapshot){
+			console.log(dataSnapshot.val());
+		});
+		// firebase.database().ref.once('classes/'+className).then(function(dataSnapshot) {
+		// });
 		return
 	}
 }
