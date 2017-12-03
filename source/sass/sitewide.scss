@@ -40,6 +40,10 @@ section {
 		line-height: 500px;
 		padding: 10px 20px;
 
+		@include tablet {
+			line-height: 300px;
+		}
+
 		&:hover {
 
 		}
@@ -73,11 +77,23 @@ section {
 #professorBody {
 	section {
 		width: 100%;
+
+		textarea {
+			display: block;
+		}
+		input {
+			display: block;
+		}
 	}
 }
 
 #studentBody {
 	section {
 		width: 100%;
+
+		textarea, input {
+			display: block;
+			margin: 0 auto;
+		}
 	}
 }

@@ -32,7 +32,6 @@ init: function(){
 	$(".btn-join").click(function(event) {
 		var classCode = $("#inputCode").val();
 		SITE.functions.check_code(classCode);
-		// $(location).attr("href","student.html");
 	});
 },
 
@@ -44,18 +43,22 @@ functions: {
 			"id": key,
 			"className": className
 		});
-		return
 	},
 
-	check_code: function(className) {
+	check_code: function(className, idName) {
 		var classPath = "classes/"+className;
+		console.log(className);
 		firebase.database().ref().once("value")
 		.then(function(dataSnapshot){
-			console.log(dataSnapshot.val());
+			console.log(dataSnapshot.val().classes[className]);
+			console.log(dataSnapshot.val().classes[className]["id"]);
+			if(dataSnapshot.val().classes[className]["id"]) {
+				$(location).attr("href","student.html");
+			} else {
+				console.log("NO");
+			}
 		});
-		// firebase.database().ref.once('classes/'+className).then(function(dataSnapshot) {
-		// });
-		return
+
 	}
 }
 };
