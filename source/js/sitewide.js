@@ -27,49 +27,59 @@ init: function(){
 	$(".btn-create").click(function(event) {
 		var newClass = $("#inputName").val();
 		SITE.functions.create_instance(newClass);
-		$(location).attr("href","professor.html");
 	});
 	$(".btn-join").click(function(event) {
 		var classCode = $("#inputCode").val();
 		var classId = $("#inputId").val();
 		SITE.functions.check_code(classCode, classId);
 	});
+	$(".btn-send").click(function(event) {
+		event.preventDefault();
+		var question = $("#question").val();
+		var classId = $("#inputId").val();
+		SITE.functions.publish_question(question, classId);
+	});
+
+	$(".btn-back").click(function() {
+		$(".professor-share").removeClass("show");
+		$(".student-question").removeClass("show");
+	});
 },
 
 functions: {
 	create_instance: function(className) {
 		var key = (new Date().getTime()+'').substr(6,7);
-		var classPath = "classes/"+className;
+		var classPath = "classes/"+key;
 		var newPostKey = firebase.database().ref().child(classPath).update({
 			"id": key,
 			"className": className
+		});
+		newPostKey.then(function() {
+			$(".professor-share").addClass("show");
+			firebase.database().ref().once("value")
+			.then(function(dataSnapshot){
+				console.log(dataSnapshot.val().classes[key]["id"]);
+				$("#shareCode").text(dataSnapshot.val().classes[key]["id"]);
+			});
 		});
 	},
 
-	publish_question: function(question, className) {
-		var questionPath = "questions/" + className;
-		var newPostKey = firebase.database().ref().child(classPath).update({
-			"id": key,
-			"className": className
-		});
-	}
+	publish_question: function(question, ClassId) {
+		var questionObject = {}
+		questionObject[question] = question;
+		var newPostKey = firebase.database().ref().child("questions/"+ClassId).update(questionObject);
+	},
 
 	check_code: function(className, idName) {
-		var classPath = "classes/"+className;
-		console.log(className);
+		var classPath = "classes/"+idName;
 		firebase.database().ref().once("value")
 		.then(function(dataSnapshot){
-			console.log(dataSnapshot.val().classes[className]);
-			console.log(dataSnapshot.val().classes[className]["id"]);
-			console.log(idName);
-			if(dataSnapshot.val().classes[className]["id"] == idName) {
-				$(location).attr("href","student.html");
+			if(dataSnapshot.val().classes[idName]["id"] == idName) {
+				$(".student-question").addClass("show");
 			} else {
-
 				console.log("NO");
 			}
 		});
-
 	}
 }
 };

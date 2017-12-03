@@ -9,20 +9,26 @@ main {
 	text-align: center;
 	position: relative;
 	display: flex;
+}
 
-	h1 {
-		color: white;
-		left: 50%;
-		position: absolute;
-		text-transform: uppercase;
-		top: 50%;
-		@include transform(translate(-50%, -50%));
-	}
+h1, h2, h3 {
+	color: white;
+}
 
-	h2 {
-		color: white;
-		margin: 10%;
-	}
+h1 {
+	left: 50%;
+	position: absolute;
+	text-transform: uppercase;
+	top: 70%;
+	@include transform(translate(-50%, -50%));
+}
+
+h2 {
+	margin: 10%;
+}
+
+.show {
+	display: block !important;
 }
 
 section {
@@ -53,8 +59,12 @@ section {
 		display: none;
 	}
 
-	.show {
-		display: block;
+
+	input {
+		@include mobile {
+			display: block;
+			margin: 20px auto;
+		}
 	}
 
 	.txt {
@@ -73,9 +83,15 @@ section {
 	}
 }
 
-#professorBody, #studentBody {
-	section {
-		width: 100%;
+.professor-share, .student-question {
+	display: none;
+	width: 100%;
+
+	&.show {
+		left: 0;
+		position: absolute;
+		top: 0;
+		z-index: 1;
 
 		textarea, input {
 			display: block;
@@ -87,3 +103,16 @@ section {
 		}
 	}
 }
+
+.professor-share {
+	background-color: #A795A5;
+}
+
+.student-question {
+	background-color: #404C56;
+
+	p {
+		display: none;
+	}
+}
+

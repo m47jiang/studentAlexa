@@ -3,6 +3,7 @@
 <head>
 	<title>Alexa Student</title>
 	<!-- include partials/meta.html -->
+	<link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 <body class="home">
 	<!-- include partials/header.html -->
@@ -12,8 +13,8 @@
 			<a id="IdStudent" href="#">Student</a>
 			<div class="entry-point join">
 				<form>
-					<input class="txt" type="text" id="inputCode" name="Class Code" placeholder="Class Code">
-					<input class="txt" type="text" id="inputId" name="Class Code" placeholder="Class Code">
+					<input class="txt" type="text" id="inputCode" name="Class Name" placeholder="Class Name">
+					<input class="txt" type="text" id="inputId" name="Class Id" placeholder="Class Id">
 					<input type="button" class="btn btn-join" type="submit" value="Join">
 				</form>
 			</div>
@@ -28,6 +29,24 @@
 			</div>
 		</section>
 	</main>
+	<div class="question-share">
+		<section class="professor-share">
+			<h2>Professor</h2>
+			<h3 id="shareCode"></h3>
+			<a class="btn-back" href="#">Back</a>
+		</section>
+		<section class="student-question">
+			<h2>Student</h2>
+			<form>
+				<textarea id="question" rows="4" cols="50">
+					Enter your question.
+				</textarea>
+				<input class="btn btn-send" type="submit" value="Send">
+			</form>
+			<p>submitted.</p>
+			<a class="btn-back" href="#">Back</a>
+		</section>
+	</div>
 	<!-- include partials/footer.html -->
 	<!-- include partials/scripts.html -->
 </body>
