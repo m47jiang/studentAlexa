@@ -81,7 +81,7 @@ functions: {
 				key += Object.keys(currentQuestions[ClassId]).length + 1;
 			}
 			var questionObject = {};
-			questionObject[key+''] = question;
+			questionObject[key+'t'] = question;
 			var newPostKey = firebase.database().ref().child("questions/"+ClassId).update(questionObject);
 		});
 
