@@ -31,7 +31,14 @@ init: function(){
 	$(".btn-join").click(function(event) {
 		var classCode = $("#inputCode").val();
 		var classId = $("#inputId").val();
-		SITE.functions.check_code(classCode, classId);
+		if(classCode == "" || classId == "") {
+			$("#warning").addClass("show");
+			setTimeout(function() {
+				$("#warning").removeClass("show");
+			}, 2000);
+		} else {
+			SITE.functions.check_code(classCode, classId);
+		}
 	});
 	$(".btn-send").click(function(event) {
 		event.preventDefault();
@@ -68,16 +75,19 @@ functions: {
 		var questionObject = {}
 		questionObject[question] = question;
 		var newPostKey = firebase.database().ref().child("questions/"+ClassId).update(questionObject);
+		//3720807
+		$("#confirmSubmission").addClass("show");
+		setTimeout(function() {
+			$("#confirmSubmission").removeClass("show");
+		}, 2000);
 	},
 
 	check_code: function(className, idName) {
 		var classPath = "classes/"+idName;
 		firebase.database().ref().once("value")
 		.then(function(dataSnapshot){
-			if(dataSnapshot.val().classes[idName]["id"] == idName) {
+			if(dataSnapshot.val().classes[idName]["id"] == idName ) {
 				$(".student-question").addClass("show");
-			} else {
-				console.log("NO");
 			}
 		});
 	}

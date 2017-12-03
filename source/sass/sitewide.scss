@@ -29,6 +29,7 @@ h2 {
 
 .show {
 	display: block !important;
+	opacity: 1 !important;
 }
 
 section {
@@ -38,6 +39,11 @@ section {
 
 	&.student {
 		background-color: #404C56;
+
+		p {
+			opacity: 0;
+			color: #CD5555;
+		}
 	}
 
 	&.professor {
@@ -112,7 +118,8 @@ section {
 	background-color: #404C56;
 
 	p {
-		display: none;
+		opacity: 0;
+		color: #90EE90;
 	}
 }
 
