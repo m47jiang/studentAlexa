@@ -44,25 +44,46 @@ section {
 			opacity: 0;
 			color: #CD5555;
 		}
+
+		a {
+			border: 2px solid #A795A5;
+			color: #A795A5;
+		}
 	}
 
 	&.professor {
 		background-color: #A795A5;
+
+		a {
+			border: 2px solid #404C56;
+			color: #404C56;
+		}
 	}
 
 	a {
-		border: 1px solid white;
-		color: white;
-		font-size: 3vw;
+		border-radius: 7px;
+		font-size: 3em;
 		line-height: 300px;
 		padding: 10px 20px;
+		@include transition(all 0.5s ease-in-out);
+
+		@include tablet {
+			font-size: 2em;
+		}
+		@include mobile {
+			font-size: 1.4em;
+		}
 
 		&:hover {
+			border-color: white;
+			border-radius: 0;
+			color: white;
 		}
 	}
 
 	.entry-point {
 		display: none;
+		@include animation(fadeIn 1s ease-in);
 	}
 
 
@@ -76,17 +97,26 @@ section {
 	.txt {
 		background: transparent;
 		border: none;
+		border-bottom: 2px solid white;
 		color: white;
-		border-bottom: 1px solid white;
+		display: block;
+		font-size: 18px;
+		margin: 30px auto;
 		outline: none;
+		vertical-align: bottom;
 	}
 	.btn {
 		background:transparent;
-		border: 2px solid white;
-		border-radius: 0;
+		border: 1px solid white;
+		border-radius: 7px;
 		color: white;
 		font-size: 1.5em;
 		padding: 10px 20px;
+		@include transition(all 0.5s ease-in-out);
+
+		&:hover {
+			border-radius: 0;
+		}
 	}
 }
 
@@ -110,6 +140,7 @@ section {
 		}
 
 		.btn-back {
+			color: white;
 			font-size: 1.5em;
 		}
 	}
