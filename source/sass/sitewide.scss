@@ -18,6 +18,11 @@ main {
 		top: 50%;
 		@include transform(translate(-50%, -50%));
 	}
+
+	h2 {
+		color: white;
+		margin: 10%;
+	}
 }
 
 section {
@@ -37,63 +42,48 @@ section {
 		border: 2px solid white;
 		color: white;
 		font-size: 3vw;
-		line-height: 500px;
+		line-height: 300px;
 		padding: 10px 20px;
 
-		@include tablet {
-			line-height: 300px;
-		}
-
 		&:hover {
-
 		}
 	}
 
 	.entry-point {
 		display: none;
-		form {
-			.txt {
-				background: transparent;
-				border: none;
-				color: white;
-				border-bottom: 1px solid white;
-				outline: none;
-			}
-			.btn {
-				background:transparent;
-				border: 1px solid white;
-				border-radius: 0;
-				color: white;
-				padding: 5px 10px;
-			}
-		}
 	}
 
 	.show {
 		display: block;
 	}
-}
 
-#professorBody {
-	section {
-		width: 100%;
-
-		textarea {
-			display: block;
-		}
-		input {
-			display: block;
-		}
+	.txt {
+		background: transparent;
+		border: none;
+		color: white;
+		border-bottom: 1px solid white;
+		outline: none;
+	}
+	.btn {
+		background:transparent;
+		border: 1px solid white;
+		border-radius: 0;
+		color: white;
+		padding: 5px 10px;
 	}
 }
 
-#studentBody {
+#professorBody, #studentBody {
 	section {
 		width: 100%;
 
 		textarea, input {
 			display: block;
 			margin: 0 auto;
+		}
+
+		.btn {
+			margin: 20px auto;
 		}
 	}
 }
