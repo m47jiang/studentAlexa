@@ -31,7 +31,8 @@ init: function(){
 	});
 	$(".btn-join").click(function(event) {
 		var classCode = $("#inputCode").val();
-		SITE.functions.check_code(classCode);
+		var classId = $("#inputId").val();
+		SITE.functions.check_code(classCode, classId);
 	});
 },
 
