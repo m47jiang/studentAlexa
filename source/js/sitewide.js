@@ -99,7 +99,7 @@ functions: {
 				if(dataSnapshot.val().classes[idName]["id"] == idName) {
 					$(".student-question").addClass("show");
 				}
-			} catch (e) {
+			} catch (e) { 
 				$("#warning").addClass("show");
 				setTimeout(function() {
 					$("#warning").removeClass("show");
