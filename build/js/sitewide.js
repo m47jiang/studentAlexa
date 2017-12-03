@@ -86,8 +86,15 @@ functions: {
 		var classPath = "classes/"+idName;
 		firebase.database().ref().once("value")
 		.then(function(dataSnapshot){
-			if(dataSnapshot.val().classes[idName]["id"] == idName ) {
-				$(".student-question").addClass("show");
+			try {
+				if(dataSnapshot.val().classes[idName]["id"] == idName) {
+					$(".student-question").addClass("show");
+				}
+			} catch (e) {
+				$("#warning").addClass("show");
+				setTimeout(function() {
+					$("#warning").removeClass("show");
+				}, 2000);
 			}
 		});
 	}
